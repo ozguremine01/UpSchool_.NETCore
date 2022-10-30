@@ -5,16 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UpSchool.DataAccessLayer\UpSchool.DataAccessLayer.csproj" />
-    <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
+    <Compile Remove="Abstract\**" />
+    <Compile Remove="Concrete\**" />
+    <Compile Remove="DLContainer\**" />
+    <Compile Remove="Logging\**" />
+    <Compile Remove="ValidationRules\**" />
+    <EmbeddedResource Remove="Abstract\**" />
+    <EmbeddedResource Remove="Concrete\**" />
+    <EmbeddedResource Remove="DLContainer\**" />
+    <EmbeddedResource Remove="Logging\**" />
+    <EmbeddedResource Remove="ValidationRules\**" />
+    <None Remove="Abstract\**" />
+    <None Remove="Concrete\**" />
+    <None Remove="DLContainer\**" />
+    <None Remove="Logging\**" />
+    <None Remove="ValidationRules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="DLContainer\" />
-    <Folder Include="Logging\" />
-    <Folder Include="ValidationRules\" />
+    <ProjectReference Include="..\UpSchool.DataAccessLayer\UpSchool.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
   </ItemGroup>
 
 </Project>
