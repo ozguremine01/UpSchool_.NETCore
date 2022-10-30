@@ -6,15 +6,12 @@
 
   <ItemGroup>
     <Compile Remove="EntityFramework\**" />
-    <Compile Remove="Klasör\**" />
     <Compile Remove="Pages\**" />
     <Compile Remove="Repository\**" />
     <EmbeddedResource Remove="EntityFramework\**" />
-    <EmbeddedResource Remove="Klasör\**" />
     <EmbeddedResource Remove="Pages\**" />
     <EmbeddedResource Remove="Repository\**" />
     <None Remove="EntityFramework\**" />
-    <None Remove="Klasör\**" />
     <None Remove="Pages\**" />
     <None Remove="Repository\**" />
   </ItemGroup>
@@ -39,6 +36,5 @@
   <ItemGroup>
     <Folder Include="Abstract\" />
   </ItemGroup>
-
 
 </Project>
