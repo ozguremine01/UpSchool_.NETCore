@@ -13,5 +13,6 @@ namespace UpSchool.DataAccessLayer.Context
         {
             optionsBuilder.UseSqlServer("");
         }
+
     }
 }
