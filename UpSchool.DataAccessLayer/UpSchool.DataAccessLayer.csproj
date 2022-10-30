@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Abstract\**" />
+    <Compile Remove="EntityFramework\**" />
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="Abstract\**" />
+    <EmbeddedResource Remove="EntityFramework\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="Abstract\**" />
+    <None Remove="EntityFramework\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Repository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -19,13 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="EntityFramework\" />
-    <Folder Include="Repository\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>
