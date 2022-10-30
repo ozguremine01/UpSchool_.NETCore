@@ -39,4 +39,5 @@
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
   </ItemGroup>
 
+
 </Project>
