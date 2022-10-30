@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Customer.cs" />
+    <Compile Include="Concrete\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Entity Framework\" />
     <Folder Include="Pages\" />
     <Folder Include="Repository\" />
