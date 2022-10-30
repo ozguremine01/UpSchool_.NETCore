@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Remove="Abstract\**" />
     <Compile Remove="EntityFramework\**" />
     <Compile Remove="Klasör\**" />
@@ -18,6 +19,15 @@
     <None Remove="Abstract\**" />
     <None Remove="EntityFramework\**" />
     <None Remove="Klasör\**" />
+=======
+    <Compile Remove="EntityFramework\**" />
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="EntityFramework\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="EntityFramework\**" />
+>>>>>>> 7792251c4be9920c9f867c21f7ae4ae460f8ed05
     <None Remove="Pages\**" />
     <None Remove="Repository\**" />
   </ItemGroup>
@@ -39,5 +49,11 @@
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
   </ItemGroup>
 
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+  </ItemGroup>
+>>>>>>> 7792251c4be9920c9f867c21f7ae4ae460f8ed05
 
 </Project>
