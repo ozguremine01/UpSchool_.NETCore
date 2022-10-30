@@ -21,4 +21,11 @@
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="EntityFramework\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>
