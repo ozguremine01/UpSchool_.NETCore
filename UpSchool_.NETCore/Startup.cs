@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UpSchool.BusinessLayer.Abstract;
+using UpSchool.BusinessLayer.Concrete;
+using UpSchool.DataAccessLayer.EntityFramework;
 
 namespace UpSchool_.NETCore
 {
@@ -23,6 +26,8 @@ namespace UpSchool_.NETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EFCategoryDal>();
             services.AddControllersWithViews();
         }
 

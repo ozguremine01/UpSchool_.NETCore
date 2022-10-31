@@ -5,18 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="EntityFramework\**" />
     <Compile Remove="Klasör\**" />
-    <Compile Remove="Pages\**" />
-    <Compile Remove="Repository\**" />
-    <EmbeddedResource Remove="EntityFramework\**" />
     <EmbeddedResource Remove="Klasör\**" />
-    <EmbeddedResource Remove="Pages\**" />
-    <EmbeddedResource Remove="Repository\**" />
-    <None Remove="EntityFramework\**" />
     <None Remove="Klasör\**" />
-    <None Remove="Pages\**" />
-    <None Remove="Repository\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +26,11 @@
   <ItemGroup>
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 
 
 </Project>
