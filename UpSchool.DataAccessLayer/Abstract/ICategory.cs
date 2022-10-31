@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UpSchool.DataAccessLayer.Abstract
 {
-    internal class class2
+    public interface ICategory
     {
     }
 }
