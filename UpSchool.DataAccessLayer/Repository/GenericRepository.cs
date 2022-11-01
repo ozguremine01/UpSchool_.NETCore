@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ using UpSchool.DataAccessLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.Repository
 {
-    public class GenericRepository<T> :IGenericDal<T> where T: class
+    //public class GenericRepository<TEntity, TContext> :IGenericDal<TEntity> 
+    // where TEntity: class
+    // where TContext : DbContext,new()
+    public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         public void Delete(T t)
         {
@@ -17,9 +21,13 @@ namespace UpSchool.DataAccessLayer.Repository
                 context.Remove(t);
                 context.SaveChanges();
             }
+            //using var context = new Context();
+            //context.Remove(t);
+            //context.SaveChanges();
         }
         //garbage collector
-        public T GetById(int id)
+
+        public T GetByID(int id)
         {
             using (var context = new Context())
             {

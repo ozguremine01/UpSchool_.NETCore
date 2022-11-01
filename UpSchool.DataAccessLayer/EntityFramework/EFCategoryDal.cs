@@ -9,7 +9,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFCategoryDal: GenericRepository<Category>, ICategory
+    public class EFCategoryDal: GenericRepository<Category>,ICategory
     {
     }
 }

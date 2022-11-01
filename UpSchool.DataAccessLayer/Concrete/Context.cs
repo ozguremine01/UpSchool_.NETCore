@@ -12,11 +12,13 @@ namespace UpSchool.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-H7B28ES; Database=DbOtel; integrated Security = True");
+            optionsBuilder.UseSqlServer("server=DESKTOP-H7B28ES;database=CoreDBOtel; integrated security=true");
 
         }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<EntityLayer.Concrete.Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<EntityLayer.Concrete.Room> Rooms { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Room> Rooms { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UpSchool.DataAccessLayer.Concrete
 {
-    internal class Room
+    public class Room
     {
     }
 }

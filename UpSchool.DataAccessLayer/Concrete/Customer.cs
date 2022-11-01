@@ -7,7 +7,8 @@ using UpSchool.DataAccessLayer.Abstract;
 
 namespace UpSchool.DataAccessLayer.Concrete
 {
-    internal class Customer<T>: IGenericDal
+    //public class Customer<T>: IGenericDal
+    public class Customer
     {
     }
 }
