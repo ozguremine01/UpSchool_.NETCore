@@ -9,7 +9,11 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFProductDal : GenericRepository<Product>, IProductDal
+    public class EFProductDal : GenericRepository<Product>, IProduct
     {
+        public void GetProductByCategory()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

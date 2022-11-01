@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.BusinessLayer.Concrete;
+using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.DataAccessLayer.EntityFramework;
 
 namespace UpSchool_.NETCore
@@ -27,7 +28,7 @@ namespace UpSchool_.NETCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICategoryService, CategoryManager>();
-            services.AddScoped<ICategoryDal, EFCategoryDal>();
+            services.AddScoped<ICategory, EFCategoryDal>();
             services.AddControllersWithViews();
         }
 

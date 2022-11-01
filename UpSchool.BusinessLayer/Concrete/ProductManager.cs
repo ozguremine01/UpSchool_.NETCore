@@ -11,26 +11,26 @@ namespace UpSchool.BusinessLayer.Concrete
 {
     public class ProductManager:IProductService
     {
-        IProductService _category;
+        IProduct _product;
 
-        public ProductManager(IProductService category)
+        public ProductManager(IProduct product)
         {
-            _category = category;
+           _product = product;
         }
 
         public void TDelete(Product t)
         {
-            return _category.Delete(t);
+            _product.Delete(t);
         }
 
-        public Category TGetByID(int id)
+        public Product TGetByID(int id)
         {
-            return _category.GetByID(t);
+            return _product.GetByID(id);
         }
 
-        public List<Category> TGetList(Product t)
+        public List<Product> TGetList()
         {
-            return _category.GetList(t);
+            return _product.GetList();
         }
 
         public void TInsert(Product t)
@@ -43,12 +43,12 @@ namespace UpSchool.BusinessLayer.Concrete
             //{
 
             //}
-            _category.Insert(t);
+            _product.Insert(t);
         }
 
         public void TUpdate(Product t)
         {
-            return _category.Update(t);
+             _product.Update(t);
         }
 
     }

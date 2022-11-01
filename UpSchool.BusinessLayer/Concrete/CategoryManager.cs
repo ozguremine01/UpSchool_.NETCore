@@ -20,17 +20,19 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public void TDelete(Category t)
         {
-           return _category.Delete(t);
+           _category.Delete(t);
         }
 
         public Category TGetByID(int id)
         {
-            return _category.GetByID(t);
+            return _category.GetByID(id);
         }
 
-        public List<Category> TGetList(Category t)
+        public List<Category> TGetList()
+        //public List<Category> TGetList()
         {
-            return _category.GetList(t);
+            //return _category.GetList(t);
+            return _category.GetList();
         }
 
         public void TInsert(Category t)
@@ -48,7 +50,7 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public void TUpdate(Category t)
         {
-            return _category.Update(t);
+            _category.Update(t);
         }
     }
 }
