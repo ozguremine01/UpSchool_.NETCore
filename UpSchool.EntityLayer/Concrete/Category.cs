@@ -13,5 +13,6 @@ namespace UpSchool.EntityLayer.Concrete
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string CategoryDescription { get; set; }
+        public ICollection<Emploee> Employess { get; set; }
     }
 }

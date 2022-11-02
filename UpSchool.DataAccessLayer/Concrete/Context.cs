@@ -19,6 +19,7 @@ namespace UpSchool.DataAccessLayer.Concrete
         public DbSet<EntityLayer.Concrete.Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<EntityLayer.Concrete.Room> Rooms { get; set; }
+        public DbSet<EntityLayer.Concrete.Emploee> Emploees { get; set; }
 
     }
 }
