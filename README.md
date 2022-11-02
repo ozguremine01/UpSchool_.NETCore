@@ -7,6 +7,8 @@
 
 * Used Database: MSSQL
 
+* Approach : Code First 
+
 * Start Time: -
 
 * End Time: Present
