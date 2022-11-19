@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,27 @@ namespace UpSchool.DataAccessLayer.EntityFramework
 {
     public class EFEmployeeDal : GenericRepository<Emploee>, IEmployee
     {
+        
+        public void ChangeEmployeeStatusToFalse(int id)
+        {
+            using (var context = new Context())
+            {
+                var values = context.Emploees.Find(id);
+                values.EmployeeStatus = false;
+                context.SaveChanges();
+            }
+        }
+
+        public void ChangeEmployeeStatusToTrue(int id)
+        {
+            using (var context = new Context())
+            {
+                var values = context.Emploees.Find(id);
+                values.EmployeeStatus = true;
+                context.SaveChanges();
+            }
+        }
+
         public List<Emploee> GetEmploeesByCategory()
         {
             using (var context = new Context())
@@ -20,7 +42,8 @@ namespace UpSchool.DataAccessLayer.EntityFramework
 
             }
         }
-    }
-       
+        
+        
     }
 }
+

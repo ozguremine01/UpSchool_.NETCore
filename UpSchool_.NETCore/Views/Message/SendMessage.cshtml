@@ -1,0 +1,22 @@
+﻿@using UpSchool.EntityLayer.Concrete
+
+@model Message
+
+@{
+    ViewBag.Title = "deneme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Send Message</h1>
+
+<form class="form-group" method="post">
+    <label>Alıcı Maili</label>
+    <input type="text" asp-for="RecevierMail" class="form-control"/>
+    <label>Konu</label>
+    <input type="text" asp-for="MessageSubject" class="form-control" />
+    <label>Mesaj</label>
+    <input type="text" asp-for="MessageContent" class="form-control" />
+    <textarea cols="3" rows="5"></textarea>
+    <button class="btn btn-warning">Gönder</button>
+</form>
+  

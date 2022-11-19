@@ -10,6 +10,7 @@ namespace UpSchool.DataAccessLayer.Abstract
     public interface IEmployee : IGenericDal<Emploee>
     {
         List<Emploee> GetEmploeesByCategory();
-       
+        void ChangeEmployeeStatusToTrue(int id);
+        void ChangeEmployeeStatusToFalse(int id); 
     }
 }

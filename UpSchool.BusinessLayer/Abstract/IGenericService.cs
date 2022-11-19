@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UpSchool.EntityLayer.Concrete;
 
-namespace UpSchool.DataAccessLayer.Abstract
+namespace UpSchool.BusinessLayer.Abstract
 {
     public interface IGenericService<T>
     {
@@ -17,5 +18,6 @@ namespace UpSchool.DataAccessLayer.Abstract
         void TUpdate(T t);
         List<T> TGetList();
         T TGetByID(int id);
+        List<Emploee> TGetEmployeesByCategory();      
     }
 }

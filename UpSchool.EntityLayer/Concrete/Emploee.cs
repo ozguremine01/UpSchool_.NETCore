@@ -19,5 +19,6 @@ namespace UpSchool.EntityLayer.Concrete
         public Category Category { get; set; }
         public bool EmployeeStatus { get; set; }
 
+        public List<EmployeeTask> EmployeeTasks { get; set; }   
     }
 }

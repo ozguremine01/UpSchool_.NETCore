@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Emploee
+
+<h1>Personel Güncelleme Sayfası</h1>
+
+<form method="post">
+    <!--id'yi gizlemek için-->
+    <input type="hidden" asp-for="EmployeeID"/>
+    <label>Personel Adı: </label>
+    <input type="text" asp-for="EmployeeName" class="form-control"/>
+
+    <label>Personel Soyadı: </label>
+    <input type="text" asp-for="EmployeeSurname" class="form-control" />
+
+    <label>Personel Mail: </label>
+    <input type="text" asp-for="EmployeeMail" class="form-control" />
+
+    <label>Personel Görsel: </label>
+    <input type="text" asp-for="EmployeeImage" class="form-control" />
+
+    <label>Personel Departman: </label>
+    <input type="text" asp-for="CategoryID" class="form-control" />
+
+    <br />
+
+    <button class="btn btn-warning">Personeli Güncelle</button>
+</form>

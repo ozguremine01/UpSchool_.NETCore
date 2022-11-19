@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int count = 0;
+}
+
+@model List<EmployeeTask>
+
+<h3>Görev Listesi</h3>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Başılk</th>
+        <th>Durum</th>
+        <th>Tarih</th>
+        <th>Personel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Status</td>
+            <td>@item.Date.ToString("dd.MMM.yyyy")</td>
+            <td>@item.AppUser.Name  @item.AppUser.Surname</td>
+            @*<td>@item.Emploee.EmployeeName  @item.Emploee.EmployeeSurname</td>*@
+            <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+
+<a href="EmployeeTasAdd" class="btn btn-outline-info">Yeni Görev Girişi</a>

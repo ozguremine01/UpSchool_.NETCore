@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<a href="c:\users\pc\source\repos\upschool_.netcore\upschool_.netcore\wwwroot\lib\jquery\dist\jquery.min.map">c:\users\pc\source\repos\upschool_.netcore\upschool_.netcore\wwwroot\lib\jquery\dist\jquery.min.map</a>
+<script src="c:\users\pc\source\repos\upschool_.netcore\upschool_.netcore\wwwroot\lib\jquery\dist\jquery.min.js"></script>
+<script src="c:\users\pc\source\repos\upschool_.netcore\upschool_.netcore\wwwroot\lib\jquery\dist\jquery.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js%22%3E></script>
+<script type="text/javascript">
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(DrawonLoad);
+
+    function DrawonLoad() {
+        $(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Employee/Chart/DepartmanChart',
+                success: function (chartsdata) {
+
+                    var Data = chartsdata.jsonlist;
+                    var data = new google.visualization.DataTable();
+
+                    data.addColumn('string', 'DepartmanName');
+                    data.addColumn('number', 'SalaryAvg');
+
+                    for (var i = 0; i < Data.length; i++) {
+                        data.addRow([Data[i].DepartmanName, Data[i].SalaryAvg]);
+                    }
+
+                    var chart = new google.visualization.PieChart(document.getElementById('chartdiv'));
+
+                    chart.draw(data,
+                        {
+                            title: "Google Chart Core Projesi",
+                            position: "top",
+                            fontsize: "16px"
+                        });
+                }
+            });
+        })
+    }
+
+</script>
