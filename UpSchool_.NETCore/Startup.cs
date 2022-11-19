@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +13,10 @@ using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.BusinessLayer.Concrete;
 using UpSchool.DataAccessLayer.Abstract;
+using UpSchool.DataAccessLayer.Concrete;
 using UpSchool.DataAccessLayer.EntityFramework;
+using UpSchool.EntityLayer.Concrete;
+using UpSchool_.NETCore.Models;
 
 namespace UpSchool_.NETCore
 {
@@ -29,7 +34,30 @@ namespace UpSchool_.NETCore
         {
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ICategory, EFCategoryDal>();
+            services.AddScoped<IEmployeeService, EmployeeManagercs>();
+            services.AddScoped<IEmployee, EFEmployeeDal>();
+            //services.AddScoped<IEmployeeTaskDal, EmployeeTaskManagercs>();
+            //services.AddScoped<ICategory, EFCategoryDal>();
+            services.AddScoped<IMessageService, MessageManager>();
+            services.AddScoped<IMessageDal, EFMessageDal>();
+            
+
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddDbContext<Context>();
             services.AddControllersWithViews();
+            //services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+                
+            });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LogoutPath = "/Login/Index";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +76,7 @@ namespace UpSchool_.NETCore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -56,7 +85,7 @@ namespace UpSchool_.NETCore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

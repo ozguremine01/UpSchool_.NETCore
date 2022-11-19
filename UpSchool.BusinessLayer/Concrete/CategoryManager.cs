@@ -28,6 +28,11 @@ namespace UpSchool.BusinessLayer.Concrete
             return _category.GetByID(id);
         }
 
+        public List<Emploee> TGetEmployeesByCategory()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Category> TGetList()
         //public List<Category> TGetList()
         {
