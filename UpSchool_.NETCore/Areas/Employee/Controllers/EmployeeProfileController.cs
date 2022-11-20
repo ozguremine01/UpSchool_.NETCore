@@ -21,13 +21,16 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             UserEditProfile userEditProfile = new UserEditProfile();
             userEditProfile.Name = values.Name;
             userEditProfile.Surname = values.Surname;
             userEditProfile.PhoneNumber = values.PhoneNumber;
             userEditProfile.Email = values.Email;
+            
             return View(userEditProfile);
+            
         }
 
         //1. Html tarafındaki kısıtlamalarla backend tarafındaki kısıtlar arasında ne fark var?
