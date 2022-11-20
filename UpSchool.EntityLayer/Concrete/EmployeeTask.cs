@@ -17,7 +17,7 @@ namespace UpSchool.EntityLayer.Concrete
         public DateTime Date { get; set; }
         //public int EmployeeID { get; set; }
         //public Emploee Emploee { get; set; }
-        public int Id { get; set; }
+        public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
         public List<EmployeeTask> EmployeeTasks { get; set; }

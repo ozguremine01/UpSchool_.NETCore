@@ -7,6 +7,12 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
     public class EmployeeTaskDetailController : Controller
     {
         private readonly IEmployeeTaskDetailService _employeeTaskDetailService;
+
+        public EmployeeTaskDetailController(IEmployeeTaskDetailService employeeTaskDetailService)
+        {
+            _employeeTaskDetailService = employeeTaskDetailService;
+        }
+
         public IActionResult Index(int id)
         {
             var values= _employeeTaskDetailService.TGetEmployeeTaskDetailById(id);

@@ -1,9 +1,29 @@
 ﻿@model EmployeeTask
+@{
+    ViewData["Title"] = "AddTask";
+    Layout = "~/Views/Shared/_CRMLayout.cshtml";
+}
 
-<br />
 <form method="post">
     <label>Personel</label>
-    @Html.DropDownListFor(x=> x.AppUser.Id, (List<SelectListItem>) ViewBag.v, new {@class="form-control"})
+    @Html.DropDownListFor(x => x.AppUserId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+    <br />
+    <label>Görev Başlığı</label>
+    <input type="text" class="form-control" asp-for="Title" />
+    <br />
+    <label>Görev Açıklaması</label>
+    <textarea cols="2" rows="5" class="form-control" asp-for="Details"></textarea>
+    <br />
+    <button class="btn btn-outline-info">Görevi Tanımla</button>
+</form>
+
+
+@*@model EmployeeTask
+
+<form method="post">
+    <!--(List<SelectListItem>) @ViewBag.categoryVal-->
+    <label>Personel</label>
+    @Html.DropDownListFor(x=> x.AppUser.Id, (List<SelectListItem>)ViewBag.categoryVal, new {@class="form-control"})
       
     <label>Görev Başlığı</label>
     <input type="text" class="form-control", asp-for="Title"/>
@@ -11,4 +31,29 @@
     <label>Görev Açıklaması</label>
     <input type="text" class="form-control" , asp-for="Details" />
     <br />
-</form>
+</form>*@
+
+@*@model EmployeeTask
+@{
+    ViewData["Title"] = "AddTask";
+    Layout = "~/Views/Shared/_CRMLayout.cshtml";
+}
+
+<h1>AddTask</h1>
+
+<form method="post" >
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.AppUserId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+    <br />
+    <label>Gorev Başlığı</label>
+    <input type="text" class="form-control" asp-for="Title" />
+    <br />
+    <label> Görev Açıklaması</label>
+    <textarea cols="2" rows="5" class="form-control" asp-for="Details"></textarea>
+    <br />
+  <input type="submit" class="btn btn-outline-info" asp-controller="EmployeeTask" asp-action="AddTask" value="Ekle"/>
+
+
+</form>*@
+
+

@@ -14,10 +14,11 @@ namespace UpSchool_.NETCore.Controllers
     {
         
         private readonly UserManager<AppUser> _userManager;
-        public EmployeeTaskController(UserManager<AppUser> userManager)
+        private readonly IEmployeeTaskService _employeeTaskService;
+        public EmployeeTaskController(UserManager<AppUser> userManager, IEmployeeTaskService employeeTaskService)
         {
-            
             _userManager = userManager;
+            _employeeTaskService = employeeTaskService;
         }
 
         public async Task<IActionResult> Index()
@@ -28,11 +29,21 @@ namespace UpSchool_.NETCore.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            List<SelectListItem> categoryvalues = ((List<SelectListItem>)(from x in _userManager.Users.ToList() select new SelectListItem
-            {
-                Text = x.Name+ " "+ x.Surname
+            //var categoryvalues = (List<SelectListItem>)(from x in _userManager.Users.ToList() select new SelectListItem
+            //{
+            //    Text = x.Name + " " + x.Surname
 
-            }));;
+            //});
+
+            List<SelectListItem> categoryValues = (from x in _userManager.Users.ToList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.Name + " " + x.Surname,
+                                                       Value = x.Id.ToString()
+                                                   }).ToList();
+
+            ViewBag.v = categoryValues;
+
             return View();
         }
 
@@ -41,7 +52,7 @@ namespace UpSchool_.NETCore.Controllers
         {
             employeeTask.Status ="Görev Atandı";
             employeeTask.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //_employeeService.TInsert(employeeTask);
+            _employeeTaskService.TInsert(employeeTask);
             return RedirectToAction("Index");
         }
     }
