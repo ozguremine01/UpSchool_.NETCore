@@ -9,7 +9,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFCustomerDal : GenericRepository<Customer>, ICustomer
+    public class EFCustomerDal : GenericRepository<Customer>, ICustomerDal
     {
     }
 }

@@ -11,7 +11,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFEmployeeTaskDal:GenericRepository<EmployeeTask>, IEmployeeTaskDetail
+    public class EFEmployeeTaskDal:GenericRepository<EmployeeTask>, IEmployeeTaskDal
     {
         
 public List<EmployeeTask> GetEmployeeTaskByEmployee()

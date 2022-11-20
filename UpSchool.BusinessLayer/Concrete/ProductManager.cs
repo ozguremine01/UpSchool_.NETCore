@@ -11,9 +11,9 @@ namespace UpSchool.BusinessLayer.Concrete
 {
     public class ProductManager:IProductService
     {
-        IProduct _product;
+        IProductDal _product;
 
-        public ProductManager(IProduct product)
+        public ProductManager(IProductDal product)
         {
            _product = product;
         }

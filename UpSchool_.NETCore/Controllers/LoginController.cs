@@ -27,7 +27,7 @@ namespace UpSchool_.NETCore.Controllers
         [HttpPost]
         public async Task <IActionResult> Index(AppUser appUser)
         {
-            var result = await _signInManager.PasswordSignInAsync(appUser.Name, appUser.PasswordHash, false, true);
+            var result = await _signInManager.PasswordSignInAsync(appUser.UserName, appUser.PasswordHash, false, true);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "User");

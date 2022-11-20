@@ -1,4 +1,4 @@
-﻿namespace UpSchool_.NETCore.Areas
+﻿namespace UpSchool_.NETCore.Areas.Employee.Models
 {
     public class MailRequest
     {

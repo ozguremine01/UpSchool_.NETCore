@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UpSchool.DataAccessLayer.Abstract;
+using UpSchool.DataAccessLayer.Concrete;
 using UpSchool.DataAccessLayer.Repository;
 using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFEmployeeTaskDetail : GenericRepository<EmployeeTaskDetail>, IEmployeeTaskDetail
+    public class EFEmployeeTaskDetailDal : GenericRepository<EmployeeTaskDetail>, IEmployeeTaskDetailDal
     {
         public void Delete(EmployeeTask t)
         {
@@ -26,6 +27,14 @@ namespace UpSchool.DataAccessLayer.EntityFramework
             throw new NotImplementedException();
         }
 
+        public List<EmployeeTaskDetail> GetEmployeeTaskDetailById(int id)
+        {
+            using (var context = new Context())
+            {
+                return context.EmployeeTaskDetails.Where(x => x.EmployeeTaskDetailID == id).ToList();
+            }
+        }
+
         public void Insert(EmployeeTask t)
         {
             throw new NotImplementedException();
@@ -36,14 +45,6 @@ namespace UpSchool.DataAccessLayer.EntityFramework
             throw new NotImplementedException();
         }
 
-        EmployeeTask IGenericDal<EmployeeTask>.GetByID(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<EmployeeTask> IGenericDal<EmployeeTask>.GetList()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -9,7 +9,7 @@ namespace UpSchool.BusinessLayer.Abstract
 {
     public interface IEmployeeTaskService : IGenericService<EmployeeTask>
     {
-        List<EmployeeTask> GetEmployeeTaskByEmployee();
-        List<EmployeeTask> GetEmployeeTaskById(int id);
+        List<EmployeeTask> TGetEmployeeTaskByEmployee();
+        List<EmployeeTask> TGetEmployeeTaskById(int id);
     }
 }

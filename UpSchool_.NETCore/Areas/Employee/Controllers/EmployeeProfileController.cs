@@ -4,9 +4,9 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using UpSchool.EntityLayer.Concrete;
-using UpSchool_.NETCore.Models;
+using UpSchool_.NETCore.Areas.Employee.Models;
 
-namespace UpSchool_.NETCore.Areas
+namespace UpSchool_.NETCore.Areas.Employee.Controllers
 {
     [Area("Employee")]
     public class EmployeeProfileController : Controller
@@ -36,8 +36,8 @@ namespace UpSchool_.NETCore.Areas
         [HttpPost]
         public async Task<IActionResult> Index(UserEditProfile p)
         {
-            var user= await _userManager.FindByNameAsync(User.Identity.Name);
-            if(p.Image != null)
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (p.Image != null)
             {
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(p.Image.FileName);
@@ -55,7 +55,7 @@ namespace UpSchool_.NETCore.Areas
             user.Email = p.Email;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
             var result = await _userManager.UpdateAsync(user);
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Login");
             }

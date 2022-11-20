@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.Abstract
 {
-    internal interface IEmployeeTaskDetailDal
+    public interface IEmployeeTaskDetailDal
     {
+        List<EmployeeTaskDetail> GetEmployeeTaskDetailById(int id);
     }
 }

@@ -9,6 +9,10 @@ namespace UpSchool.BusinessLayer.Abstract
 {
     public interface IEmployeeService : IGenericService<Emploee>
     {
-        void TInsert(EmployeeTask employeeTask);
+        // void TInsert(EmployeeTask employeeTask);
+        List<Emploee> TGetEmployeesByCategory();
+        void TChangeEmployeeStatusToTrue(int id);
+        void TChangeEmployeeStatusToFalse(int id);
+
     }
 }

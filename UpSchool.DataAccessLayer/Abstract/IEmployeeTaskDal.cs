@@ -7,7 +7,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.Abstract
 {
-    public interface IEmployeeTaskDetail: IGenericDal<EmployeeTask>
+    public interface IEmployeeTaskDal: IGenericDal<EmployeeTask>
     {
         List<EmployeeTask> GetEmployeeTaskByEmployee();
         List<EmployeeTask> GetEmployeeTaskById(int id);

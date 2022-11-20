@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UpSchool.DataAccessLayer.Migrations
 {
-    public partial class mig6 : Migration
+    public partial class create_migration4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

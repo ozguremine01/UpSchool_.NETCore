@@ -11,11 +11,21 @@ namespace UpSchool.BusinessLayer.Concrete
 {
     public class EmployeeManagercs:IEmployeeService
     {
-        IEmployee _employee;
+        IEmployeeDal _employee;
 
-        public EmployeeManagercs(IEmployee employee)
+        public EmployeeManagercs(IEmployeeDal employee)
         {
             _employee = employee;
+        }
+
+        public void TChangeEmployeeStatusToFalse(int id)
+        {
+            _employee.ChangeEmployeeStatusToFalse(id);
+        }
+
+        public void TChangeEmployeeStatusToTrue(int id)
+        {
+            _employee.ChangeEmployeeStatusToTrue(id);
         }
 
         public void TDelete(Emploee t)
@@ -30,7 +40,7 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public List<Emploee> TGetEmployeesByCategory()
         {
-            throw new NotImplementedException();
+            return _employee.GetEmploeesByCategory();
         }
 
         public List<Emploee> TGetList()
