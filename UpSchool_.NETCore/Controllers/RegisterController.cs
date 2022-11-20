@@ -11,12 +11,12 @@ namespace UpSchool_.NETCore.Controllers
     {
         
         private readonly UserManager<AppUser> _userManager;
-
+        
         public RegisterController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
-
+        
         [HttpGet]
         public IActionResult Index()
         {
@@ -43,17 +43,18 @@ namespace UpSchool_.NETCore.Controllers
         [HttpPost]
         public async Task<IActionResult> Index2(UserSignUpModel p)
         {
-            if(ModelState.IsValid)
-            { 
-            AppUser appUser = new AppUser()
+                     
+                  if (ModelState.IsValid)
             {
+                AppUser appUser = new AppUser()
+                {
 
-                UserName = p.UserName,
-                Name = p.Name,
-                Surname = p.Surname,
-                Email = p.Email,
-                PhoneNumber = p.PhoneNumber
-            };
+                    UserName = p.UserName,
+                    Name = p.Name,
+                    Surname = p.Surname,
+                    Email = p.Email,
+                    PhoneNumber = p.PhoneNumber
+                };
                 if (p.Password == p.ConfirmPassword)
                 {
                     var result = await _userManager.CreateAsync(appUser, p.Password);
@@ -79,8 +80,16 @@ namespace UpSchool_.NETCore.Controllers
             {
                 ModelState.AddModelError("","deneme");
             }
+                
+            
+            return View();
+            
+        }
+        [HttpGet]
+        public IActionResult Index3()
+        {
             return View();
         }
-        
+
     }
 }

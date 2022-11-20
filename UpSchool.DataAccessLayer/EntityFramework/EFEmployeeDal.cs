@@ -11,7 +11,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.EntityFramework
 {
-    public class EFEmployeeDal : GenericRepository<Emploee>, IEmployee
+    public class EFEmployeeDal : GenericRepository<Emploee>, IEmployeeDal
     {
         
         public void ChangeEmployeeStatusToFalse(int id)

@@ -1,7 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
+    ViewBag["Title"] = "UpdateEmployee";
+    Layout = "~/Views/Shared/_CRMLayout.cshtml";
 }
 @model Emploee
 
@@ -9,9 +9,9 @@
 
 <form method="post">
     <!--id'yi gizlemek için-->
-    <input type="hidden" asp-for="EmployeeID"/>
+    <input type="hidden" asp-for="EmployeeID" />
     <label>Personel Adı: </label>
-    <input type="text" asp-for="EmployeeName" class="form-control"/>
+    <input type="text" asp-for="EmployeeName" class="form-control" />
 
     <label>Personel Soyadı: </label>
     <input type="text" asp-for="EmployeeSurname" class="form-control" />

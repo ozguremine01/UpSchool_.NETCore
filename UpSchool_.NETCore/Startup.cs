@@ -16,6 +16,7 @@ using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.DataAccessLayer.Concrete;
 using UpSchool.DataAccessLayer.EntityFramework;
 using UpSchool.EntityLayer.Concrete;
+using UpSchool_.NETCore.Areas.Employee.Controllers;
 using UpSchool_.NETCore.Models;
 
 namespace UpSchool_.NETCore
@@ -33,11 +34,15 @@ namespace UpSchool_.NETCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICategoryService, CategoryManager>();
-            services.AddScoped<ICategory, EFCategoryDal>();
+            services.AddScoped<ICategoryDal, EFCategoryDal>();
             services.AddScoped<IEmployeeService, EmployeeManagercs>();
-            services.AddScoped<IEmployee, EFEmployeeDal>();
-            //services.AddScoped<IEmployeeTaskDal, EmployeeTaskManagercs>();
-            //services.AddScoped<ICategory, EFCategoryDal>();
+            services.AddScoped<IEmployeeDal, EFEmployeeDal>();
+            services.AddScoped<IEmployeeTaskService, EmployeeTaskManagercs>();
+            services.AddScoped<IEmployeeTaskDal, EFEmployeeTaskDal>();
+            
+            services.AddScoped<IEmployeeTaskDetailService, EmployeeTaskDetailManager>();
+            services.AddScoped<IEmployeeTaskDetailDal, EFEmployeeTaskDetailDal>();
+
             services.AddScoped<IMessageService, MessageManager>();
             services.AddScoped<IMessageDal, EFMessageDal>();
             
@@ -45,7 +50,7 @@ namespace UpSchool_.NETCore
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddDbContext<Context>();
             services.AddControllersWithViews();
-            //services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -80,6 +85,12 @@ namespace UpSchool_.NETCore
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
 
             app.UseEndpoints(endpoints =>
             {

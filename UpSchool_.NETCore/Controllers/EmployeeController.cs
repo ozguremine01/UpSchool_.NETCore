@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.BusinessLayer.ValidationRules;
@@ -24,9 +24,10 @@ namespace UpSchool_.NETCore.Controllers
 
         public IActionResult Index()
         {
+            var values = _employeeService.TGetEmployeesByCategory();
             //var values = _employeeService.TGetEmploeeBy();
             //return View(values);
-            return View();  
+            return View(values);  
         }
 
         [HttpGet]
@@ -40,8 +41,8 @@ namespace UpSchool_.NETCore.Controllers
             }).ToList();
             return View();
         }
+
         [HttpPost]
-        /*
         public IActionResult AddEmployee(Emploee emploee)
         {
             EmployeeValidator validationRules = new EmployeeValidator();
@@ -61,7 +62,7 @@ namespace UpSchool_.NETCore.Controllers
             }
             return View();
         }
-        */
+        
         public IActionResult DeleteEmployee(int id)
         {
             var values = _employeeService.TGetByID(id);
@@ -69,7 +70,7 @@ namespace UpSchool_.NETCore.Controllers
             return RedirectToAction("Index");
 
         }
-        /*
+        
         public IActionResult ChangeStatusToFalse(int id)
         {
             _employeeService.TChangeEmployeeStatusToFalse(id);
@@ -81,7 +82,8 @@ namespace UpSchool_.NETCore.Controllers
             _employeeService.TChangeEmployeeStatusToTrue(id);
             return RedirectToAction("Index");
         }
-        */
+        
+
         [HttpGet]
         public IActionResult UpdateEmployee(int id)
         {

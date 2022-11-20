@@ -4,29 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
+using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.BusinessLayer.Concrete
 {
-    public class EmployeeTaskDetailManager : IEmployeeTaskService
+    public class EmployeeTaskDetailManager : IEmployeeTaskDetailService
     {
-        private readonly IEmployeeTaskService _employeeTaskService; 
-        public List<EmployeeTask> GetEmployeeTaskByEmployee()
+        private readonly IEmployeeTaskDetailDal _employee;
+
+        public EmployeeTaskDetailManager(IEmployeeTaskDetailDal employee)
+        {
+            _employee = employee;
+        }
+
+        public void TDelete(EmployeeTaskDetail t)
         {
             throw new NotImplementedException();
         }
 
-        public List<EmployeeTask> GetEmployeeTaskById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(EmployeeTask t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public EmployeeTask TGetByID(int id)
+        public EmployeeTaskDetail TGetByID(int id)
         {
             throw new NotImplementedException();
         }
@@ -36,17 +33,22 @@ namespace UpSchool.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<EmployeeTask> TGetList()
+        public List<EmployeeTaskDetail> TGetEmployeeTaskDetailById(int id)
+        {
+            return _employee.GetEmployeeTaskDetailById(id);
+        }
+
+        public List<EmployeeTaskDetail> TGetList()
         {
             throw new NotImplementedException();
         }
 
-        public void TInsert(EmployeeTask t)
+        public void TInsert(EmployeeTaskDetail t)
         {
             throw new NotImplementedException();
         }
 
-        public void TUpdate(EmployeeTask t)
+        public void TUpdate(EmployeeTaskDetail t)
         {
             throw new NotImplementedException();
         }

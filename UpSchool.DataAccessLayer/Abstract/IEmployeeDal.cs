@@ -7,7 +7,10 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.Abstract
 {
-    public interface ICategory : IGenericDal<Category>
+    public interface IEmployeeDal : IGenericDal<Emploee>
     {
+        List<Emploee> GetEmploeesByCategory();
+        void ChangeEmployeeStatusToTrue(int id);
+        void ChangeEmployeeStatusToFalse(int id); 
     }
 }

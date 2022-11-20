@@ -33,11 +33,11 @@ namespace UpSchool.DataAccessLayer.Concrete
 
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<EntityLayer.Concrete.Customer> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<EntityLayer.Concrete.Room> Rooms { get; set; }
-        public DbSet<EntityLayer.Concrete.Emploee> Emploees { get; set; }
-        public DbSet<EntityLayer.Concrete.EmployeeTask> EmployeeTasks { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Emploee> Emploees { get; set; }
+        public DbSet<EmployeeTask> EmployeeTasks { get; set; }
         
         public DbSet<EmployeeTaskDetail> EmployeeTaskDetails { get; set; } 
         public DbSet<Message> Messages { get; set; } 
@@ -46,7 +46,7 @@ namespace UpSchool.DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-H7B28ES;database=DbCoreCRM; integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-H7B28ES;database=DbCoreCRM1; integrated security=true");
 
         }
     }

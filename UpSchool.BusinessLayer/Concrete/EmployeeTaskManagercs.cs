@@ -9,18 +9,33 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.BusinessLayer.Concrete
 {
-    public class EmployeeTaskManagercs : IGenericService<EmployeeTask>
+    public class EmployeeTaskManagercs : IEmployeeTaskService
     {
-        DataAccessLayer.Abstract.IEmployeeTaskDetail _employeeTaskDal;
+        private readonly IEmployeeTaskDal _employeeTaskDal;
+
+        public EmployeeTaskManagercs(IEmployeeTaskDal employeeTaskDal)
+        {
+            _employeeTaskDal = employeeTaskDal;
+        }
+
+        public List<EmployeeTask> TGetEmployeeTaskByEmployee()
+        {
+            return _employeeTaskDal.GetEmployeeTaskByEmployee();
+        }
+
+        public List<EmployeeTask> TGetEmployeeTaskById(int id)
+        {
+            return _employeeTaskDal.GetEmployeeTaskById(id);
+        }
 
         public void TDelete(EmployeeTask t)
         {
-            throw new NotImplementedException();
+            _employeeTaskDal.Delete(t);
         }
 
         public EmployeeTask TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _employeeTaskDal.GetByID(id);
         }
 
         public List<Emploee> TGetEmployeesByCategory()
@@ -35,12 +50,12 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public void TInsert(EmployeeTask t)
         {
-            throw new NotImplementedException();
+            _employeeTaskDal.Insert(t);
         }
 
         public void TUpdate(EmployeeTask t)
         {
-            throw new NotImplementedException();
+            _employeeTaskDal.Update(t);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UpSchool_.NETCore.Models;
 
-namespace UpSchool_.NETCore.Areas
+namespace UpSchool_.NETCore.Areas.Employee.Controllers
 {
     [Area("Employee")]
     public class ChartController : Controller

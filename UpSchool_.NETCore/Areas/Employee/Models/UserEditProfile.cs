@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace UpSchool_.NETCore.Models
+namespace UpSchool_.NETCore.Areas.Employee.Models
 {
     public class UserEditProfile
     {

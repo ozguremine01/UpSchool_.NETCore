@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.EntityLayer.Concrete;
 
@@ -11,17 +12,17 @@ namespace UpSchool_.NETCore.Controllers
 {
     public class EmployeeTaskController : Controller
     {
-        private readonly IEmployeeService _employeeService;
+        
         private readonly UserManager<AppUser> _userManager;
-        public EmployeeTaskController(IEmployeeService employeeService, UserManager<AppUser> userManager)
+        public EmployeeTaskController(UserManager<AppUser> userManager)
         {
-            _employeeService = employeeService;
+            
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var values = _employeeService.TGetEmployeesByCategory();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
             return View(values);
         }
         [HttpGet]
@@ -40,7 +41,7 @@ namespace UpSchool_.NETCore.Controllers
         {
             employeeTask.Status ="Görev Atandı";
             employeeTask.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            _employeeService.TInsert(employeeTask);
+            //_employeeService.TInsert(employeeTask);
             return RedirectToAction("Index");
         }
     }

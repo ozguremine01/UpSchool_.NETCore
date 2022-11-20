@@ -8,8 +8,8 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.BusinessLayer.Abstract
 {
-    public interface IEmployeeTaskDetail:IGenericDal<EmployeeTaskDetail>
+    public interface IEmployeeTaskDetailService:IGenericService<EmployeeTaskDetail>
     {
-
+        List<EmployeeTaskDetail> TGetEmployeeTaskDetailById(int id);
     }
 }

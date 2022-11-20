@@ -10,8 +10,8 @@ using UpSchool.DataAccessLayer.Concrete;
 namespace UpSchool.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221116112856_mig6")]
-    partial class mig6
+    [Migration("20221120154714_create_migration8")]
+    partial class create_migration8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

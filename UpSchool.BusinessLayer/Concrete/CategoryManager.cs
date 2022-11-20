@@ -11,9 +11,9 @@ namespace UpSchool.BusinessLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        ICategory _category;
+        ICategoryDal _category;
 
-        public CategoryManager(ICategory category)
+        public CategoryManager(ICategoryDal category)
         {
             _category = category;
         }

@@ -2,7 +2,7 @@
 
 namespace UpSchool.DataAccessLayer.Migrations
 {
-    public partial class mig8 : Migration
+    public partial class create_migration8 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

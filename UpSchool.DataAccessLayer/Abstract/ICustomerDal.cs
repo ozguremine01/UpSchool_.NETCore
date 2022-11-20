@@ -7,9 +7,7 @@ using UpSchool.EntityLayer.Concrete;
 
 namespace UpSchool.DataAccessLayer.Abstract
 {
-    public interface IProduct : IGenericDal<Product>
-
+    public interface ICustomerDal:IGenericDal<Customer>
     {
-       void GetProductByCategory();    
     }
 }
