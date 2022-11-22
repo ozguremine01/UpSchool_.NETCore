@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.BusinessLayer.Concrete;
+using UpSchool.BusinessLayer.DIContainer;
 using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.DataAccessLayer.Concrete;
 using UpSchool.DataAccessLayer.EntityFramework;
@@ -33,20 +34,7 @@ namespace UpSchool_.NETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ICategoryService, CategoryManager>();
-            services.AddScoped<ICategoryDal, EFCategoryDal>();
-            services.AddScoped<IEmployeeService, EmployeeManagercs>();
-            services.AddScoped<IEmployeeDal, EFEmployeeDal>();
-            services.AddScoped<IEmployeeTaskService, EmployeeTaskManagercs>();
-            services.AddScoped<IEmployeeTaskDal, EFEmployeeTaskDal>();
-            
-            services.AddScoped<IEmployeeTaskDetailService, EmployeeTaskDetailManager>();
-            services.AddScoped<IEmployeeTaskDetailDal, EFEmployeeTaskDetailDal>();
-
-            services.AddScoped<IMessageService, MessageManager>();
-            services.AddScoped<IMessageDal, EFMessageDal>();
-            
-
+            services.Containerdependencies();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddDbContext<Context>();
             services.AddControllersWithViews();
