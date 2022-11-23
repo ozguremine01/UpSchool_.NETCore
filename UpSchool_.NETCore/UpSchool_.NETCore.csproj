@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.97.0" />
     <PackageReference Include="EPPlus.Core" Version="1.5.4" />
     <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.9.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
