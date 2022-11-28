@@ -47,7 +47,7 @@ namespace UpSchool.DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-H7B28ES;database=DbCoreCRM1; integrated security=true");
+            optionsBuilder.UseSqlServer("server=*******;database=DbCoreCRM1; integrated security=true");
 
         }
     }
