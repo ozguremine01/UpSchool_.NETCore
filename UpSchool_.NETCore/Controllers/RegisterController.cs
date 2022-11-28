@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using UpSchool_.NETCore.Models;
 
 namespace UpSchool_.NETCore.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         
@@ -17,31 +19,31 @@ namespace UpSchool_.NETCore.Controllers
             _userManager = userManager;
         }
         
+        //[HttpGet]
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Index(AppUser appUser)
+        //{
+        //    var result = await _userManager.CreateAsync(appUser,appUser.PasswordHash); 
+        //    if(result.Succeeded)
+        //    {
+        //        return RedirectToAction("Index", "UserList");  
+        //    }
+
+        //    return View();
+        //}
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index3()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(AppUser appUser)
-        {
-            var result = await _userManager.CreateAsync(appUser,appUser.PasswordHash); 
-            if(result.Succeeded)
-            {
-                return RedirectToAction("Index", "UserList");  
-            }
-
-            return View();
-        }
-        [HttpGet]
-        public IActionResult Index2()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Index2(UserSignUpModel p)
+        public async Task<IActionResult> Index3(UserSignUpModel p)
         {
                      
                   if (ModelState.IsValid)
@@ -86,7 +88,7 @@ namespace UpSchool_.NETCore.Controllers
             
         }
         [HttpGet]
-        public IActionResult Index3()
+        public IActionResult Index2()
         {
             return View();
         }
