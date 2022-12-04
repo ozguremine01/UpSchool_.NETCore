@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UpSchool.BusinessLayer.Abstract;
 using UpSchool.BusinessLayer.Concrete;
+using UpSchool.BusinessLayer.ValidationRules.ContactValidation;
 using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.DataAccessLayer.EntityFramework;
+using UpSchool_.NETCore.DTOLayer.DTOs.ContactDTOs;
+using UpSchool_.NETCore.DTOLayer.SupplierDTOs;
 
 namespace UpSchool.BusinessLayer.DIContainer
 {
@@ -25,10 +29,25 @@ namespace UpSchool.BusinessLayer.DIContainer
             services.AddScoped<IEmployeeTaskDetailService, EmployeeTaskDetailManager>();
             services.AddScoped<IEmployeeTaskDetailDal, EFEmployeeTaskDetailDal>();
 
+
+            services.AddScoped<ICustomerService, CustomerManager>();
+            services.AddScoped<ICustomerDal, EFCustomerDal>();
+
+
             services.AddScoped<IMessageService, MessageManager>();
             services.AddScoped<IMessageDal, EFMessageDal>();
             services.AddScoped<IAnnouncementDal, EFAnnouncementDal>();
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
+
+            services.AddScoped<IContactService, ContactManager>();
+            services.AddScoped<IContactDal, EFContactDal>();
+
+        }
+
+        public static void CustomizeValidator(this IServiceCollection services)
+        {
+            services.AddTransient<IValidator<ContactAddDto>, ContactAddValidator>();
+            services.AddTransient<IValidator<ContactUpdateDto>, ContactUpdateValidator>();
 
         }
     }
