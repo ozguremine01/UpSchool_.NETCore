@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +39,10 @@ namespace UpSchool_.NETCore
             services.Containerdependencies();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddDbContext<Context>();
+            //Type of Startup
+            services.AddAutoMapper(typeof(Startup));
+            services.CustomizeValidator();
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddControllersWithViews();
             //services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddMvc(config =>
@@ -80,6 +86,12 @@ namespace UpSchool_.NETCore
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+                    endpoints.MapControllerRoute(
+                      name: "areas",
+                      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
+                
             });
         }
     }

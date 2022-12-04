@@ -7,10 +7,13 @@
   <ItemGroup>
     <ProjectReference Include="..\UpSchool.DataAccessLayer\UpSchool.DataAccessLayer.csproj" />
     <ProjectReference Include="..\UpSchool.EntityLayer\UpSchool.EntityLayer.csproj" />
+    <ProjectReference Include="..\UpSchool_.NETCore.DTOLayer\UpSchool_.NETCore.DTOLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Logging\" />
+    <Folder Include="ValidationRules\AppUserValidation\" />
+    <Folder Include="ValidationRules\CustomerValidation\" />
   </ItemGroup>
 
   <ItemGroup>
