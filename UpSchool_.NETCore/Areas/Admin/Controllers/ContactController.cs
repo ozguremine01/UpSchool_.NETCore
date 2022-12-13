@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using UpSchool.BusinessLayer.Abstract;
-using UpSchool_.NETCore.DTOLayer.SupplierDTOs;
+using UpSchool_.NETCore.DTOLayer.DTOs.ContactDTOs;
+
 
 namespace UpSchool_.NETCore.Areas.Admin.Controllers
 {

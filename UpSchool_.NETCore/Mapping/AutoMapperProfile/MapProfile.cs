@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using UpSchool.EntityLayer.Concrete;
-using UpSchool_.NETCore.DTOLayer.CustomerDTOs;
+
 using UpSchool_.NETCore.DTOLayer.DTOs.ContactDTOs;
-using UpSchool_.NETCore.DTOLayer.SupplierDTOs;
+
 
 namespace UpSchool_.NETCore.Mapping.AutoMapperProfile
 {
@@ -19,8 +19,7 @@ namespace UpSchool_.NETCore.Mapping.AutoMapperProfile
             CreateMap<ContactUpdateDto, Contact>();
             CreateMap<Contact, ContactUpdateDto>();
 
-            CreateMap<CustomerAddDTO, Contact>();
-            CreateMap<Contact, CustomerAddDTO>();
+           
         }
     }
 }
