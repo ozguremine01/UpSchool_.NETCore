@@ -28,7 +28,8 @@ namespace UpSchool_.NETCore.Controllers
         public async Task <IActionResult> Index(AppUser appUser)
         {
             var result = await _signInManager.PasswordSignInAsync(appUser.UserName, appUser.PasswordHash, false, true);
-            if (result.Succeeded)
+            //result.Succeeded -> email ve password'un eşleştiğinin kontrolü
+            if (result.Succeeded && appUser.EmailConfirmed== true)
             {
                 return RedirectToAction("Index", "User");
             }

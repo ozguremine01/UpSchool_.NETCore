@@ -11,7 +11,6 @@ using UpSchool.BusinessLayer.ValidationRules.ContactValidation;
 using UpSchool.DataAccessLayer.Abstract;
 using UpSchool.DataAccessLayer.EntityFramework;
 using UpSchool_.NETCore.DTOLayer.DTOs.ContactDTOs;
-using UpSchool_.NETCore.DTOLayer.SupplierDTOs;
 
 namespace UpSchool.BusinessLayer.DIContainer
 {

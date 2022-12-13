@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UpSchool.EntityLayer.Concrete;
-using UpSchool_.NETCore.DTOLayer.SupplierDTOs;
+using UpSchool_.NETCore.DTOLayer.DTOs.ContactDTOs;
+
 
 namespace UpSchool.BusinessLayer.ValidationRules.ContactValidation
 {

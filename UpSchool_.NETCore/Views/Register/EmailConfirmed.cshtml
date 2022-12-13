@@ -1,0 +1,19 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "EmailConfirmed";
+    Layout = "~/Views/Shared/_CrmLayout.cshtml";
+}
+
+<h1>EmailConfirmed</h1>
+
+<h1>EmailConfirmed</h1>
+<form method="post">
+
+    <label>EMAİL</label>
+    <input type="text" asp-for="Email" class="form-control" />
+
+    <label>EMAİL CONFİRMED CODE</label>
+    <input type="text" asp-for="LoginCharacter" class="form-control" />
+
+    <button type="submit">CONFIRMED</button>
+</form>
