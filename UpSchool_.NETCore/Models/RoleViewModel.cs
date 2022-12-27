@@ -6,5 +6,7 @@ namespace UpSchool_.NETCore.Models
     {
 
         //[Required()]
+        [Required(ErrorMessage = "Lütfen boş geçmeyeniz")]
+        public string RoleName { get; set; }
     }
 }

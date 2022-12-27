@@ -30,7 +30,7 @@
             <td>@item.EmployeeName  @item.EmployeeSurname</td>
             <td>@item.Category.CategoryName</td>
             <td><a href="Employee/DeleteEmployee/@item.EmployeeID" class="btn btn-warning">Sil</a></td>
-            <td><a href="/Employee/UpdateEmployee/" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Employee/UpdateEmployee/@item.EmployeeID" class="btn btn-warning">Güncelle</a></td>
             <td><a href="#" class="btn btn-success">Görevler</a></td>
             @{
                 if(item.EmployeeStatus == true)
@@ -46,5 +46,5 @@
     }
 </table>
 
-<a href="#" class="btn btn-primary">Yeni Personel Girişi</a>
+<a href="/Employee/AddEmployee/" class="btn btn-primary">Yeni Personel Girişi</a>
 

@@ -20,12 +20,12 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public void TDelete(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(t);
         }
 
         public Contact TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetByID(id);
         }
 
         public List<Emploee> TGetEmployeesByCategory()
@@ -35,17 +35,17 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public List<Contact> TGetList()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetList();
         }
 
         public void TInsert(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Insert(t);
         }
 
         public void TUpdate(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(t);
         }
     }
 }

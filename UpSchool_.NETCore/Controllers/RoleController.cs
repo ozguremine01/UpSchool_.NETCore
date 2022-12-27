@@ -28,8 +28,8 @@ namespace UpSchool_.NETCore.Controllers
             return View();
         }
 
-        //[HttpPost]
-        /*
+        [HttpPost]
+        
         public async Task<IActionResult> AddRole(RoleViewModel model)
         {
             if(ModelState.IsValid)
@@ -54,9 +54,9 @@ namespace UpSchool_.NETCore.Controllers
             }
             return View();
         }
-        */
-        /*
-        public async Task<IActionResult> DeleteRole()
+        
+        
+        public async Task<IActionResult> DeleteRole(int id)
         {
             var role = _roleManager.Roles.FirstOrDefault(x => x.Id == id);
             var result = await _roleManager.DeleteAsync(role);  
@@ -66,7 +66,7 @@ namespace UpSchool_.NETCore.Controllers
             }
             return View();
         }
-        */
+        
 
     }
 }
