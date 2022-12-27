@@ -35,7 +35,7 @@ namespace UpSchool.BusinessLayer.Concrete
 
         public List<Customer> TGetList()
         {
-            throw new NotImplementedException();
+            return _customerDal.GetList();
         }
 
         public void TInsert(Customer t)

@@ -57,14 +57,14 @@ namespace UpSchool.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void ChangeEmployeeStatusToTrue(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public void ChangeEmployeeStatusToTrue(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void ChangeEmployeeStatusToFalse(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public void ChangeEmployeeStatusToFalse(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

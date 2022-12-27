@@ -10,7 +10,7 @@ namespace UpSchool.BusinessLayer.Abstract
 {
     public interface IProductService : IGenericService<Product>
     {
-        void ChangeEmployeeStatusToTrue(int id);
-        void ChangeEmployeeStatusToFalse(int id);
+        //void ChangeEmployeeStatusToTrue(int id);
+        //void ChangeEmployeeStatusToFalse(int id);
     }
 }

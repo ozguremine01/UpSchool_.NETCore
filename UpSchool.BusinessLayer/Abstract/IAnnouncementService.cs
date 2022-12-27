@@ -9,5 +9,6 @@ namespace UpSchool.BusinessLayer.Abstract
 {
     public interface IAnnouncementService : IGenericService<Announcement>
     {
+        public List<Announcement> TContainA();
     }
 }

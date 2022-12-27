@@ -48,17 +48,17 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
             return RedirectToAction("SendMessage");
         }
 
-        /*
+        
         [HttpGet]
 
-        public async Task<IActionResult> SendMessage()
+        public async Task<IActionResult> SendEmail()
         {
            
             return View();
         }
-        */
+        
         [HttpPost]
-        public async Task<IActionResult> SendMessage(MailRequest mailRequest)
+        public async Task<IActionResult> SendEmail(MailRequest mailRequest)
         {
             MimeMessage mimeMessage = new MimeMessage();
 
@@ -73,6 +73,7 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
 
             mimeMessage.Body = bodyBuilder.ToMessageBody();
             mimeMessage.Subject = mailRequest.MailSubject;
+
 
             //SmtpClient smtpClient = new SmtpClient();
             //smtpClient.Connect("smtp.gmail.com", 587, false);

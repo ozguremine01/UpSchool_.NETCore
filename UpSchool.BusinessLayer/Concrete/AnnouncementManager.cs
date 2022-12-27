@@ -19,6 +19,11 @@ namespace UpSchool.BusinessLayer.Concrete
             _announcement = announcement;
         }
 
+        public List<Announcement> TContainA()
+        {
+            return _announcement.ContainA();
+        }
+
         public void TDelete(Announcement t)
         {
             _announcement.Delete(t);

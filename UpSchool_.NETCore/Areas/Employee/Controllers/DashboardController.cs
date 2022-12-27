@@ -2,9 +2,9 @@
 
 namespace UpSchool_.NETCore.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class DashboardController : Controller
-    {
-        [Area("Employee")]
+    {      
         public IActionResult Index()
         {
             return View();

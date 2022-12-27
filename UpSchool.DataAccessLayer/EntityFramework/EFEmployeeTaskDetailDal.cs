@@ -12,20 +12,20 @@ namespace UpSchool.DataAccessLayer.EntityFramework
 {
     public class EFEmployeeTaskDetailDal : GenericRepository<EmployeeTaskDetail>, IEmployeeTaskDetailDal
     {
-        public void Delete(EmployeeTask t)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Delete(EmployeeTask t)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<EmployeeTask> GetEmployeeTaskByEmployee()
-        {
-            throw new NotImplementedException();
-        }
+        //public List<EmployeeTask> GetEmployeeTaskByEmployee()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<EmployeeTask> GetEmployeeTaskById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<EmployeeTask> GetEmployeeTaskById(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public List<EmployeeTaskDetail> GetEmployeeTaskDetailById(int id)
         {
@@ -35,15 +35,15 @@ namespace UpSchool.DataAccessLayer.EntityFramework
             }
         }
 
-        public void Insert(EmployeeTask t)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Insert(EmployeeTask t)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void Update(EmployeeTask t)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Update(EmployeeTask t)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         
     }

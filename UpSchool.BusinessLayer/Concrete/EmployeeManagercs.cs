@@ -53,10 +53,10 @@ namespace UpSchool.BusinessLayer.Concrete
             _employee.Insert(t);
         }
 
-        public void TInsert(EmployeeTask employeeTask)
-        {
-            throw new NotImplementedException();
-        }
+        //public void TInsert(EmployeeTask employeeTask)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void TUpdate(Emploee t)
         {

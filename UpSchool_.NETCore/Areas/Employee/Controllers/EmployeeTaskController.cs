@@ -24,6 +24,7 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             //var taskList=_employeeTaskService
+            //var taskList=_employeeTaskService.TGEtEmployeeTaskByID(values.Id);
             return View(values);
 
         }
