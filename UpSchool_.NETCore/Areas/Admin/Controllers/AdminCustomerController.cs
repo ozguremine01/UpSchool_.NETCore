@@ -32,7 +32,7 @@ namespace UpSchool_.NETCore.Areas.Admin.Controllers
         {
             _customerService.TInsert(customer);
             var values = JsonConvert.SerializeObject(customer);
-            return View(values);
+            return Json(values);
         }
 
         //Veritabanında tutulan ismiyle tutulur. Yazılır.

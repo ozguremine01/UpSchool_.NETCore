@@ -21,11 +21,11 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
         }
 
         public async Task<IActionResult> Index()
-        {
+        {//FindByNameAsync(User.Identity.Name);
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             //var taskList=_employeeTaskService
-            //var taskList=_employeeTaskService.TGEtEmployeeTaskByID(values.Id);
-            return View(values);
+            var taskList=_employeeTaskService.TGetEmployeeTaskById(values.Id);
+            return View(taskList);
 
         }
     }

@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using System;
 using System.Linq;
-using System.Net.Mail;
+
 //using System.Net.Mail;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -74,6 +75,11 @@ namespace UpSchool_.NETCore.Areas.Employee.Controllers
             mimeMessage.Body = bodyBuilder.ToMessageBody();
             mimeMessage.Subject = mailRequest.MailSubject;
 
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Connect("smtp.gmail.com", 587, false);
+            smtpClient.Authenticate("deneme@deneme.com", "key değeri(Google app passwordden alınıyor)");
+            smtpClient.Send(mimeMessage);
+            smtpClient.Disconnect(true);
 
             //SmtpClient smtpClient = new SmtpClient();
             //smtpClient.Connect("smtp.gmail.com", 587, false);
