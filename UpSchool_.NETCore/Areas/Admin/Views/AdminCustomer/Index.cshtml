@@ -6,7 +6,8 @@
 
 <h1>Index</h1>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <br />
 <button type="button" id="btncustomerlist" class="btn btn-outline-dark">Müşteri Listesi</button>
 <button type="button" id="btncustomeradd" class="btn btn-outline-primary">Müşteri Ekle</button>
@@ -65,102 +66,92 @@
     <input type="text" class="form-control" id="txtphone" placeholder="Güncellenecek telefon numaranız" />
          <br />             
 </div>
-<script>
 
-    $("#btncustomerlist").click(function()
-    {
+
+
+
+
+<script>
+    $("#btncustomerlist").click(function () {
         $.ajax({
             contentType: "application/json",
             dataType: "json",
             type: "get",
             url: "/Admin/AdminCustomer/CustomerList/",
-            success: function(funk1)
-            {
-                let values = jQuery.parseJSON(funk1);
-                //Tarayıcıdaki console 'a yazmak için
+            success: function (func1) {
+                let values = jQuery.parseJSON(func1);
                 console.log(values);
-                let tablehtml = "<table class=table table-bordered> <tr><th>Müşteri ID</th><th>Müşteri Adı</th><th>Müşteri Soyadı</th>";
-                @*Buradaki index neyi ifade ediyor?*@
-                $.each(values,(index,item) => {
-                    //Rectick işareti
-                        tablehtml += `<tr><td>${item.CustomerID}</td><td>${item.CustomerName}</td> <td>${item.CustomerSurname}</td> <td>${item.CustomerMail}</td></tr>`
+                let tablehtml = "<table class=table table-bordered> <tr><th>Musteri ID</th><th>Musteri Adı</th><th>Musteri Soyadı</th><th>Musteri Mail</th></tr>";
+                $.each(values, (index, item) => {
+                    tablehtml += `<tr><td>${item.CustomerID}</td> <td>${item.CustomerName}</td> <td>${item.CustomerSurname}</td> <td>${item.CustomerMail}</td></tr>`
                 });
-                tablehtml += "</table>"
-                $("#customerlist").html(tablehtml);
-            @*ajax'ın farklı kullanımlarına bak*@
+                tablehtml += "</table>";
+                $("#cusotmerList").html(tablehtml);
             }
         });
-
-        $("#btncustomeradd").click(function () {
-        let customervalues=
-        {
+    });
+    $("#btncustomeradd").click(function () {
+        let csutomerValues = {
             CustomerName: $("#txtcustomername").val(),
             CustomerSurname: $("#txtcustomersurname").val(),
             CustomerMail: $("#txtcustomermail").val(),
             CustomerPhone: $("#txtcustomerphone").val(),
         };
         $.ajax({
-            //type: "post",
-            //url: "/Admin/AdminCustomer/AddCustomer/",
-            ////contentType:"application/json",
-            //data:customervalues,
-            //success: function(funk2)
-            //{
-            //    let result = JQuery.parseJSON()
-            //}
-                 type: "post",
-                url: "/Admin/AdminCustomer/AddCustomer/",
-                data: customervalues,
-                success: function (funk2) {
-                    let result = jQuery.parseJSON(funk2);
-                    alert("Müşteri başarılı bir şekilde eklendi");
+            type: "post",
+            url: "/Admin/AdminCustomer/AddCustomer/",     
+            data: csutomerValues,
+            success: function (func2) {
+                let result = jQuery.parseJSON(func2);
+                alert("Müşteri başarılı bir şekilde eklendi")
+            }
         });
-            $("#btncustomerget").click(x => {
-                let id = $("#txtid").val();
-
-                $.ajax({
-                    contentType: "application/json",
-                    dataType: "json",
-                    type: "get",
-                    url: "/Admin/AdminCustomer/GetByID/",
-                    data: { CustomerID: id },
-                    success: function (funk3) {
-                        let result = jQuery.parseJSON(funk3);
-                        console.log(result);
-
-                        let tablehtml2 = <table class=table table-bordered > <tr><th>Müşteri ID < /th><th>Müşteri Adı</th > <th>Müşteri Soyadı < /th></tr > <tr><td>${ result.CustomerID } </td><td>${result.CustomerName}</td > <td>${ result.CustomerSurname } </td></tr > </table>;
-                        $("#customergetbyid").html(tablehtml2);
-                    }
-                });
-                $("#btncustomerdelete").click(x => {
-                    let id = $("#txtdeleteid").val();
-                    $.ajax({
-                        url: "/Admin/AdminCustomer/DeleteCustomer/" + id,
-                        type: "get",
-                        contentType: "json",
-                        success: function(funk4)
-                        {
-                            alert("Müşteri başarılı bir şekilde silindi.");
-                        }
-                    });
-                });
-                $("#btncustomerupdate").click(x => {
-                    let values = 
-                    {
-                        
-                    }
-                    $.ajax({
-                        url: "/Admin/AdminCustomer/DeleteCustomer/" + id,
-                        type: "get",
-                        contentType: "json",
-                        success: function (funk4) {
-                            alert("Müşteri başarılı bir şekilde silindi.");
-                        }
-                    });
-                });
-            });
-           
-            
     });
-
+    $("#btncustomerget").click(x => {
+        let id = $("#txtid").val();
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Admin/Admincustomer/GetById",
+            data: { CustomerID: id },
+            success: function (func3) {
+                let result = jQuery.parseJSON(func3);
+                console.log(result);
+                let tablehtml2 = `<table class=table table-bordered> <tr> <th>musteriID</th> <th>musteri Adı</th> <th>musteri Soyadı</th> </tr> <tr><td>${result.CustomerID}</td> ><td>${result.CustomerName}</td> ><td>${result.CustomerSurname}</td></tr></table>`
+                $("#CustomerGetByID").html(tablehtml2);
+            }
+        });
+    });
+    $("#btncustomerdelete").click(x => {
+        let id = $("#txtdeleted").val();
+        $.ajax({
+            url: "/Admin/AdminCustomer/DeleteCustomer/" + id,
+            type: "get",
+            contentType: "application/json",
+            success: function (func4) {
+                alert("Müşteri Başarılı Bir Şekilde silindi");
+            }
+        });
+    });
+    $("#btncustomerupdate").click(function () {
+        let values = {
+            CustomerID: $("#txtid").val(),
+            CustomerName: $("#txtname").val(),
+            CustomerSurmane: $("#txtsoyad").val(),
+            CustomerPhone: $("#txttelefon").val(),
+            CustomerMail: $("#txtmail").val(),
+        };
+        $.ajax({
+            type: "get",
+            url: "/Admin/AdminCustomer/UpdateCustomer/",
+            success: function (func5) {
+                alert("güncelleme işlemi yapıldı")
+            }
+        });
+    });
 </script>
+
+
+
+

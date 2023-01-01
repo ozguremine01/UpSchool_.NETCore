@@ -20,7 +20,7 @@
         <th>Başılk</th>
         <th>Durum</th>
         <th>Tarih</th>
-        <th>Personel</th>
+        @*<th>Personel</th>*@
         <th>Sil</th>
         <th>Güncelle</th>
         <th>Detaylar</th>
@@ -33,7 +33,7 @@
             <td>@item.Title</td>
             <td>@item.Status</td>
             <td>@item.Date.ToString("dd.MMM.yyyy")</td>
-            <td>@item.AppUser.Name  @item.AppUser.Surname</td>
+            @*<td>@item.AppUser.Name  @item.AppUser.Surname</td>*@
             @*<td>@item.Emploee.EmployeeName  @item.Emploee.EmployeeSurname</td>*@
             <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
@@ -42,4 +42,4 @@
     }
 </table>
 
-<a href="EmployeeTasAdd" class="btn btn-outline-info">Yeni Görev Girişi</a>
+<a href="EmployeeTaskAdd" class="btn btn-outline-info">Yeni Görev Girişi</a>
